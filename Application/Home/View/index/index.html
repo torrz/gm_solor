@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>松乐麻将机登录</title>
-    <script src="../dist/es6-shim.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UCISS application"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- Bootstrap -->
+    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="__PUBLIC__/css//bootstrap-theme.min.css" rel="stylesheet" media="screen">
+
 </head>
 <body>
+<div ng-app="">
+    <p>名字 : <input type="text" ng-model="name"></p>
+    <h1>Hello {{name}}</h1>
+</div>
 
+<script src="__PUBLIC__/js/angular.min.js"></script>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/angular-route.min.js"></script>
 </body>
 </html>
