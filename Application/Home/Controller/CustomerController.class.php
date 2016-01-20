@@ -9,7 +9,7 @@ namespace Home\Controller;
 use Think\Controller;
 class CustomerController extends Controller {
     public function index(){
-        $this->display('customerShow');
+        $this->display('index');
     }
     public function add(){
         echo 'hello,thinkphp!';
