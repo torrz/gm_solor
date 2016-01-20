@@ -15,12 +15,12 @@
 <body>
 <div class="container">
 
-    <form class="form-signin">
+    <form class="form-signin" action="./Home/Index/login" method="post">
         <h2 class="form-signin-heading">高明松乐麻将机后台</h2>
-        <label for="inputEmail" class="sr-only">用户名</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="用户名" required autofocus>
+        <label for="inputUserName" class="sr-only">用户名</label>
+        <input type="text" id="inputUserName" name="userName" class="form-control" placeholder="用户名" required autofocus>
         <label for="inputPassword" class="sr-only">密码</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> 记住我
