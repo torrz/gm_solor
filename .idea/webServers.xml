@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1b294c24-527b-4dc1-9053-b519c95fde6e" name="gm_solor" url="http://localhost">
+        <fileTransfer mountedRoot="C:\wamp\www" accessType="MOUNT" />
+      </webServer>
+      <webServer id="c94d9f1e-37e2-4a25-afd6-c723a9705455" name="heme" url="http://112.124.6.100">
+        <fileTransfer host="112.124.6.100" port="21" password="dfebdfebdfd3dfd3df93df93df92df92df9ddf9d" username="administrator">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="a2ff7436-78bf-4aee-b31f-bf48a6526566" name="商城" url="http://112.124.7.172">
+        <fileTransfer host="112.124.7.172" port="21" password="dfebdfebdfd3dfd3df93df93df92df92df9ddf9d" username="administrator">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
