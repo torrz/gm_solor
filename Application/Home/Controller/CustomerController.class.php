@@ -8,10 +8,16 @@
 namespace Home\Controller;
 use Think\Controller;
 class CustomerController extends Controller {
+    Public function _initialize(){
+        $this->assign('category','customerCategory');
+    }
     public function index(){
         $this->display('index');
     }
-    public function add(){
-        echo 'hello,thinkphp!';
+    public function edit(){
+        $this->display('edit');
+    }
+    public function  add(){
+        $this->display('add');
     }
 }
