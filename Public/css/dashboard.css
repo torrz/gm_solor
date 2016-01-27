@@ -101,7 +101,7 @@ body {
 }
 .placeholder img {
     display: inline-block;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
 }
 .img-responsive{
     width: 100px;

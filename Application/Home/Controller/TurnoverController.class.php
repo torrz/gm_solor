@@ -8,10 +8,13 @@
 namespace Home\Controller;
 use Think\Controller;
 class TurnoverController extends Controller {
-    Public function _initialize(){
+    public function _initialize(){
         $this->assign('category','turnoverCategory');
     }
     public function index(){
+        $Turnover=D('Turnover');
+        $list=$Turnover->relation('class')->order('id desc')->select();
+        $this->assign('turnovers',$list);
         $this->display('index');
     }
 }

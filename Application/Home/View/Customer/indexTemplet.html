@@ -1,28 +1,31 @@
-<div class="col-md-12">
-    <h2 class="sub-header col-md-2">客户资料</h2>
-    <a class="btn btn-primary col-sm-offset-9" href="__ROOT__/Home/Customer/add" role="button" style="margin-top: 28px">添加客户</a>
-</div>
+<h2 class="sub-header">客户资料</h2>
+    <a class="btn btn-primary" href="__ROOT__/Home/Customer/addIndex" role="button">添加客户</a>
 <div class="table-responsive col-md-12">
-    <table class="table table-bordered table-hover">
+    <table class="table table-hover table-condensed">
         <thead>
         <tr>
             <th class="col-md-1">序号</th>
             <th class="col-md-1">客户姓名</th>
-            <th class="col-md-2">电话</th>
-            <th class="col-md-4">地址</th>
-            <th class="col-md-2">品牌机型</th>
+            <th class="col-md-1">电话</th>
+            <th class="col-md-3">地址</th>
+            <th class="col-md-1">品牌机型</th>
+            <th class="col-md-1">行业</th>
             <th class="col-md-2">操作</th>
         </tr>
         </thead>
+
         <tbody>
+        <volist name="customers" id="vo">
         <tr>
-            <td>1,001</td>
-            <td><a href="__ROOT__/Home/Customer/edit?id=">王先生</a> </td>
-            <td>159999536550</td>
-            <td>高明区三洲碧桂园xx座</td>
-            <td>松乐</td>
-            <td><a href="__ROOT__/Home/Customer/edit?id=">详细</a>&nbsp;<a href="javascript:;">删除</a></td>
+            <td>{$vo['id']}</td>
+            <td><a href="__ROOT__/Home/Customer/edit?id={$vo['id']}">{$vo['customername']}</a> </td>
+            <td>{$vo['customerphone']}</td>
+            <td>{$vo['customeraddress']}{$vo['customeraddressdetail']}</td>
+            <td>{$vo['customerproducttype']}</td>
+            <td>{$vo['customerindustry']}</td>
+            <td><a href="__ROOT__/Home/Customer/edit?id={$vo['id']}">详细</a>&nbsp;<a href="__ROOT__/Home/customer/del?id={$vo['id']}">删除</a></td>
         </tr>
+        </volist>
         </tbody>
     </table>
 </div>

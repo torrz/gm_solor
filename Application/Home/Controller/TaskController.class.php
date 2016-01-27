@@ -8,7 +8,7 @@
 namespace Home\Controller;
 use Think\Controller;
 class TaskController extends Controller {
-    Public function _initialize(){
+    public function _initialize(){
         $this->assign('category','taskCategory');
     }
     public function index(){

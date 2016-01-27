@@ -2,16 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: Torrz
- * Date: 2016/1/20
- * Time: 22:40
+ * Date: 2016/1/24
+ * Time: 13:43
  */
 namespace Home\Controller;
 use Think\Controller;
-class ProductController extends Controller {
+class SettingController extends Controller {
     public function _initialize(){
-        $this->assign('category','productCategory');
+        date_default_timezone_set('Asia/Shanghai');
+        $this->assign('category','settingCategory');
     }
     public function index(){
         $this->display('index');
     }
+
 }

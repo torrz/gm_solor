@@ -1,65 +1,56 @@
-<include file="../Common/IndexHeader"/>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h2 class="sub-header">客户信息</h2>
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="__ROOT__/Home/Customer/add" method="post">
         <div class="form-group">
             <label for="customerName" class="col-sm-1 control-label">客户姓名</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="customerName" placeholder="">
+                <input type="text" name="customerName" class="form-control" id="customerName" placeholder="">
             </div>
 
         </div>
         <div class="form-group">
             <label for="customerPhone" class="col-sm-1 control-label">电话</label>
             <div class="col-sm-4">
-                <input type="number" class="form-control" id="customerPhone" placeholder="">
+                <input type="number" name="customerPhone" class="form-control" id="customerPhone" placeholder="">
             </div>
         </div>
+        <div class="form-group tagInput" data-target="customerAddressDetail">
+            <volist name="addtags" id="vo">
+                <span class="label label-primary">{$vo.content}</span>
+            </volist>
+        </div>
         <div class="form-group">
-            <label for="customerAddress" class="col-sm-1 control-label">地址</label>
+            <label for="customerAddressDetail" class="col-sm-1 control-label">地址</label>
             <div class="col-sm-2">
-                <select class="form-control">
-                    <option>荷城街道</option>
-                    <option>西江新城</option>
-                    <option>杨和</option>
-                    <option>明城</option>
-                    <option>更合</option>
-                    <option>非高明区</option>
+                <select class="form-control" name="customerAddress">
+                    <volist name="adds" id="vo">
+                        <option>{$vo.address}</option>
+                    </volist>
                 </select>
             </div>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="customerAddress" placeholder="">
+                <input type="text" class="form-control" id="customerAddressDetail" name="customerAddressDetail" placeholder="">
+            </div>
+        </div>
+        <div class="form-group tagInput" data-target="customerProductType">
+            <volist name="producttypes" id="vo">
+                <span class="label label-primary">{$vo.producttype}</span>
+            </volist>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">品牌机型</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="customerProductType" name="customerProductType" placeholder="">
             </div>
         </div>
         <div class="form-group">
-            <label for="customerAddress" class="col-sm-1 control-label">品牌机型</label>
+            <label class="col-sm-1 control-label">客户行业</label>
             <div class="col-sm-2">
-                <select class="form-control">
-                    <option>松乐</option>
-                    <option>松乐</option>
-                    <option>松乐</option>
-                    <option>松乐</option>
-                    <option>松乐</option>
-                    <option>松乐</option>
+                <select class="form-control" name="customerIndustry">
+                    <volist name="industrys" id="vo">
+                        <option>{$vo['industry']}</option>
+                    </volist>
                 </select>
-            </div>
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-default">添加</button>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="customerAddress" class="col-sm-1 control-label">客户行业</label>
-            <div class="col-sm-2">
-                <select class="form-control">
-                    <option>家庭使用</option>
-                    <option>酒店</option>
-                    <option>茶馆</option>
-                    <option>棋牌室</option>
-                    <option>士多</option>
-                </select>
-            </div>
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-default">添加</button>
             </div>
         </div>
         <div class="form-group">
@@ -72,5 +63,6 @@
 
         </div>
     </form>
+
+    <script src="__PUBLIC__/js/tagInput.js"></script>
 </div>
-<include file="../Common/IndexFooter"/>
