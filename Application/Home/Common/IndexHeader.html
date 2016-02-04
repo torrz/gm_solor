@@ -10,6 +10,7 @@
     <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
     <link href="__PUBLIC__/css/bootstrap-theme.min.css" rel="stylesheet">
     <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/angular.min.js"></script>
 </head>
 <body>
 <link href="__PUBLIC__/css/dashboard.css" rel="stylesheet">
@@ -29,7 +30,7 @@
                 <li><a href="__ROOT__/Home/Task/index">任务</a></li>
                 <li><a href="__ROOT__/Home/Customer/index">客户</a></li>
                 <li><a href="__ROOT__/Home/Turnover/index">账单</a></li>
-                <li><a href="__ROOT__/">退出</a></li>
+                <li><a href="__ROOT__/Home/Index/exitSolor">退出</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="搜索客户...">
@@ -48,10 +49,11 @@
             </ul>
             <ul class="nav nav-sidebar ulCategory">
                 <li class="productCategory"><a href="__ROOT__/Home/Product/index">产品</a></li>
-                <li><a href="">货存</a></li>
             </ul>
             <ul class="nav nav-sidebar ulCategory">
                 <li class="settingCategory"><a href="__ROOT__/Home/Setting/index">设置</a></li>
                 <li><a href="">选项管理</a></li>
+                <li><a href="__ROOT__/Home/Setting/tagsIndex?belong=address">地址标签管理</a></li>
+                <li><a href="__ROOT__/Home/Setting/tagsIndex?belong=productType">机型标签管理</a></li>
             </ul>
         </div>

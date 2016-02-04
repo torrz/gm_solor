@@ -4,31 +4,29 @@
         <table class="table table-hover table-condensed">
             <thead>
             <tr>
-                <th class="col-md-0.1">编号</th>
-                <th class="col-md-0.5">购买类型</th>
+                <th class="col-md-1">单号</th>
+                <th class="col-md-1">购买类型</th>
                 <th class="col-md-1">机型*数量</th>
-                <th class="col-md-0.5">合计</th>
-                <th class="col-md-1">下单日期</th>
-                <th class="col-md-0.5">保修</th>
+                <th class="col-md-1">应付款</th>
+                <th class="col-md-1">已付款</th>
+                <th class="col-md-1">保修期至</th>
                 <th class="col-md-1">客户姓名</th>
                 <th class="col-md-1">电话</th>
                 <th class="col-md-2">地址</th>
-                <th class="col-md-2">操作</th>
             </tr>
             </thead>
             <tbody>
             <volist name="turnovers" id="vo">
             <tr>
-                <td>{$vo['id']}</td>
+                <td><a href="edit?oddNum={$vo['oddnum']}">{$vo['oddnum']}</a></td>
                 <td>{$vo['transactiontype']}</td>
                 <td>{$vo['producttype']}*{$vo['transactionnum']}</td>
                 <td>{$vo['total']}</td>
-                <td>{$vo['creattime']|substr=0,10}</td>
-                <td class="warrantyperiod" data-period='{$vo['warrantyperiod']}'></td>
-                <td>{$vo['customername']}</td>
+                <td>{$vo['alreadycollection']}</td>
+                <td>{$vo['period']|substr=0,10}</td>
+                <td><a href="__ROOT__/Home/Customer/editIndex?id={$vo['customernum']}">{$vo['customername']}</a></td>
                 <td>{$vo['customerphone']}</td>
                 <td>{$vo['customeraddress']}{$vo['customeraddressdetail']}</td>
-                <td><a href="javascript:;">详细</a>&nbsp;<a href="javascript:;">删除</a></td>
             </tr>
             </volist>
             </tbody>

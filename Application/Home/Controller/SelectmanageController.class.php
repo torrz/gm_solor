@@ -9,6 +9,12 @@ namespace Home\Controller;
 use Think\Controller;
 class SelectmanageController extends Controller {
     public function _initialize(){
+        $value = session('user');
+        if(session('?user')){
+        }
+        else{
+            $this->error("请先登录",__ROOT__,1);
+        }
     }
 
     public function add(){

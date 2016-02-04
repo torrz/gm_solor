@@ -1,0 +1,73 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-app="myApp" ng-controller="tagsController">
+    <h2 class="sub-header">{{tilte}}</h2>
+    <div class="table-responsive col-md-12" >
+        <table class="table table-hover table-condensed">
+            <thead>
+            <tr>
+                <th class="col-md-1">标签</th>
+                <th class="col-md-4">操作</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr ng-repeat="item in contents">
+                <td><input ng-model="item.content"></td>
+                <td>
+                    <button  class="btn" ng-click="edit(item.id,item.content)">修改</button>
+                    &nbsp &nbsp
+                    <button class="btn" ng-click="remove(item.id)">删除</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input ng-model="tag.content"></td>
+                <td>
+                    <button class="btn" ng-click="add(tag.content)">添加</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('tagsController', function ($scope, $http) {
+        $scope.init= function () {
+            $scope.titleCode="{$belong}";
+            switch ($scope.titleCode){
+                case "address":
+                    $scope.tilte="地址";
+                    break;
+                case "productType":
+                    $scope.tilte="机型";
+                    break;
+                default:
+                    $scope.tilte="出错";
+                    break;
+            }
+        }();
+        $scope.getTag= function () {
+            $http.get("tagsGet?belong='{$belong}'").success(function (response) {
+                $scope.contents = response;
+                console.log($scope.contents);
+            });
+        };
+        $scope.getTag();
+
+        $scope.edit = function (id, content) {
+            $http.get("tagsEdit?id="+id+"&content="+content).success(function (response) {
+                console.log(response);
+            });
+        };
+        $scope.remove = function (id) {
+            $http.get("tagsDel?id="+id).success(function (response) {
+                console.log(response);
+                $scope.getTag();
+            });
+        };
+        $scope.add = function (content) {
+            $http.get("tagAdd?content="+content+"&belong={$belong}").success(function (response) {
+                console.log(response);
+                $scope.getTag();
+            });
+        };
+    });
+</script>

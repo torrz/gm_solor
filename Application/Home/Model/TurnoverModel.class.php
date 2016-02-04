@@ -10,9 +10,9 @@ use Think\Model\RelationModel;
 class TurnoverModel extends RelationModel {
     protected $_link = array(
         'Customer'=>array(
-            'mapping_type'=> self::HAS_ONE,
+            'mapping_type'=> self::BELONGS_TO,
             'mapping_name'=>'class',
-            'foreign_key'=>'id',
+            'foreign_key'=>'customernum',
             'as_fields' => 'customername,customeraddress,customerphone,customeraddressdetail',
             ),
         );

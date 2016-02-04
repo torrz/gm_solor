@@ -18,14 +18,27 @@
         <volist name="customers" id="vo">
         <tr>
             <td>{$vo['id']}</td>
-            <td><a href="__ROOT__/Home/Customer/edit?id={$vo['id']}">{$vo['customername']}</a> </td>
+            <td><a href="__ROOT__/Home/Customer/editIndex?id={$vo['id']}">{$vo['customername']}</a> </td>
             <td>{$vo['customerphone']}</td>
             <td>{$vo['customeraddress']}{$vo['customeraddressdetail']}</td>
             <td>{$vo['customerproducttype']}</td>
             <td>{$vo['customerindustry']}</td>
-            <td><a href="__ROOT__/Home/Customer/edit?id={$vo['id']}">详细</a>&nbsp;<a href="__ROOT__/Home/customer/del?id={$vo['id']}">删除</a></td>
+            <td><a href="__ROOT__/Home/Customer/editIndex?id={$vo['id']}">详细</a>&nbsp;<a href="__ROOT__/Home/customer/del?id={$vo['id']}">删除</a></td>
         </tr>
         </volist>
         </tbody>
     </table>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    确定删除{$result['oddnum']}订单?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">不</button>
+                    <a href="curd.html?action=del&oddNum={$result['oddnum']}" class="btn btn-danger">确定删除</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

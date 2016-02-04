@@ -1,0 +1,132 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-app="OrderAddApp" ng-controller="AddController">
+    <h2 class="sub-header">创建新单</h2>
+    <form class="form-horizontal" action="__ROOT__/Home/Turnover/curd?action=add" method="post">
+        <div class="form-group" ng-init="order.OddNum={$oddNum}">
+            <label for="transactionType" class="col-sm-1 control-label">单号</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="oddNum" name="oddNum"  ng-model="order.OddNum">
+
+            </div>
+            <div class="col-md-2">
+                <span class="label label-warning">单号由当前时间生成，请勿随意修改</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="transactionType" class="col-sm-1 control-label">交易类型</label>
+            <div class="col-sm-2">
+                <select class="form-control" name="transactionType" id="transactionType" ng-model="order.Type">
+                    <option>购买新机</option>
+                    <option>购买旧机</option>
+                    <option>以旧换新</option>
+                    </select>
+            </div>
+        </div>
+        <div class="form-group tagInput col-sm-12 " data-target="productType" >
+            <volist name="producttypes" id="vo">
+                <span class="label label-primary" ng-click="TypeTagChose('{$vo.belong}','{$vo.content}')">{$vo.content}</span>
+            </volist>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">品牌机型</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="productType" name="productType" placeholder="" ng-model="order.ProductType">
+            </div>
+            <label class="col-sm-1 control-label">购买数量</label>
+            <div class="col-sm-1">
+                <input type="number" class="form-control" id="transactionNum" name="transactionNum" placeholder="" value="1" ng-model="order.Num" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">应收款</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="total" name="total" placeholder="" value="" ng-model="order.Total" required>
+            </div>
+            <label class="col-sm-1 control-label">已收款</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" name="alreadyCollection" ng-model="order.AlreadyCollection" required>
+            </div>
+            </div>
+        <div class="form-group">
+            <label for="warrantyPeriod" class="col-sm-1 control-label">保修期</label>
+            <div class="col-sm-2">
+                <select class="form-control" name="warrantyPeriod" id="warrantyPeriod" ng-model="order.WarrantyPeriod">
+                    <option>1年</option>
+                    <option>3年</option>
+                    <option>3个月</option>
+                    <option>1个月</option>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <input type="number" name="customerNum" ng-model="order.CustomerNum" class="hidden">
+        <div class="form-group">
+            <label for="customerName" class="col-sm-1 control-label">客户姓名</label>
+            <div class="col-sm-2">
+                <input type="text" name="customerName" class="form-control" id="customerName" placeholder="" ng-model="order.CustomerName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="customerPhone" class="col-sm-1 control-label">电话</label>
+            <div class="col-sm-3">
+                <input type="number" name="customerPhone" class="form-control" id="customerPhone" placeholder="" ng-model="order.CustomerPhone" required/>
+            </div>
+            <div class="col-sm-1">
+                <button type="button" class="btn btn-default" ng-click="search(order.CustomerPhone)">搜索</button>
+            </div>
+            <span class="label label-warning">{{order.SearchResult}}</span>
+        </div>
+        <div class="form-group tagInput col-sm-12" data-target="customerAddressDetail">
+            <volist name="addtags" id="vo">
+                <span class="label label-primary" ng-click="TypeTagChose('{$vo.belong}','{$vo.content}')">{$vo.content}</span>
+            </volist>
+        </div>
+        <div class="form-group">
+            <label for="customerAddressDetail" class="col-sm-1 control-label">地址</label>
+            <div class="col-sm-2">
+                <select class="form-control" name="customerAddress" ng-model="order.CustomerAddress">
+                    <volist name="adds" id="vo">
+                        <option>{$vo.address}</option>
+                    </volist>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="customerAddressDetail" name="customerAddressDetail" placeholder="" ng-model="order.CustomerAddressDetail" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-1 control-label">客户行业</label>
+            <div class="col-sm-2">
+                <select class="form-control" name="customerIndustry" ng-model="order.Industrys">
+                    <volist name="industrys" id="vo">
+                        <option>{$vo['industry']}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=" col-sm-offset-1 col-sm-1">
+                <a class="btn btn-default" href="javascript :;" onClick="javascript :history.back(-1);" role="button">取消</a>
+            </div>
+            <div class=" col-sm-1">
+                <button type="submit" class="btn btn-primary" >添加</button>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        单号：{{order.OddNum}}<br>
+        购买类型：{{order.Type}}<br>
+        购买机型：{{order.ProductType}}<br>
+        购买台数：{{order.Num}}<br>
+        应收款：{{order.Total}}<br>
+        已收款：{{order.AlreadyCollection}}<br>
+        保修期：{{order.WarrantyPeriod}}<br>
+        客户姓名：{{order.CustomerName}}<br>
+        客户联系方式：{{order.CustomerPhone}}<br>
+        客户地址：{{order.CustomerAddress}}{{order.CustomerAddressDetail}}<br>
+        客户行业：{{order.Industrys}}<br>
+    </div>
+    <script src="__PUBLIC__/js/app/OrderAddApp.js"></script>
+    <script src="__PUBLIC__/js/tagInput.js"></script>
+</div>
