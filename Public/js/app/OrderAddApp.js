@@ -9,7 +9,7 @@ app.controller('AddController', function ($scope, $http) {
             CustomerNum:0,
             Type:"购买新机",
             WarrantyPeriod:"1年",
-            AlreadyCollection:0,
+            //AlreadyCollection:"",
             Num:1,
             CustomerAddress:"荷城街道",
             Industrys:"家庭使用",

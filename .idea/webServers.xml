@@ -6,7 +6,7 @@
         <fileTransfer mountedRoot="C:\wamp\www" accessType="MOUNT" />
       </webServer>
       <webServer id="c94d9f1e-37e2-4a25-afd6-c723a9705455" name="heme" url="http://112.124.6.100">
-        <fileTransfer host="112.124.6.100" port="21" password="dfebdfebdfd3dfd3df93df93df92df92df9ddf9d" username="administrator">
+        <fileTransfer host="112.124.6.100" port="21" password="dfeddfeddfc7dfc7df9fdf9fdf9cdf9cdf9ddf9d" username="administrator">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

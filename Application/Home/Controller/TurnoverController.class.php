@@ -67,6 +67,7 @@ class TurnoverController extends Controller {
         $customerData['customerAddress']=I('post.customerAddress');//客户地址
         $customerData['customerAddressDetail']=I('post.customerAddressDetail');//客户详细地址
         $customerData['customerIndustry']=I('post.customerIndustry');//客户行业
+        $customerData['creatTime']=date('Y-m-d H:i:s');
         $orderData['oddNum']=I('oddNum');//交易单号
         $orderData['transactionType']=I('post.transactionType');//购买类型
         $orderData['productType']=I('post.productType');//购买机型
@@ -74,6 +75,7 @@ class TurnoverController extends Controller {
         $orderData['total']=I('post.total');//应付款
         $orderData['alreadyCollection']=I('post.alreadyCollection');//已付款
         $orderData['warrantyPeriod']=warrantyPeriodConvert(I('post.warrantyPeriod'));//保修期
+        $orderData['status_code']="danger";
         $orderData['remark']=I('post.remark');//备注
         switch($action){
             case "add":
